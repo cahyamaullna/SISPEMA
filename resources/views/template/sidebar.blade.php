@@ -13,11 +13,17 @@
       <li class="nav-heading">Pages</li>
 
   
-      @if (Auth::user()->role === 'petugas' || Auth::user()->role === 'pengaju')
+      @if ( Auth::user()->role === 'pengaju')
       <li class="nav-item">
           <a href="{{ url('ajukan-pengaduan') }}" class="nav-link collapsed">
             <i class="bi bi-envelope-open"></i>
             <span>Isi Pengajuan</span>
+          </a>
+      </li>
+      <li class="nav-item">
+          <a href="{{ url('all-pengaduan') }}" class="nav-link collapsed">
+            <i class="bi bi-envelope-open"></i>
+            <span>Data Pengajuan</span>
           </a>
       </li>
       @endif
@@ -90,13 +96,14 @@
       </li>
 
 
-
+      <!-- @if (Auth::user()->role === 'admin' || Auth::user()->role === 'petugas' || Auth::user()->role === 'pengaju')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('profile-diri') }}"
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
       </li>
+      @endif -->
 
     </ul>
 

@@ -27,7 +27,9 @@
         <th scope="col">Tanggal</th>
         <th scope="col">Foto</th>
         <th scope="col">Status</th>
-            <th scope="col">Action</th>
+        @if ( Auth::user()->role != 'pengaju')
+        <th scope="col">Action</th>
+        @endif
       </tr>
     </thead>
     <tbody>
@@ -47,11 +49,13 @@
                <td class="badge mt-2 rounded-pill bg-primary">{{ $item->status }}</td>
                 
             @endif
+            @if ( Auth::user()->role != 'pengaju')
             <td>
                 <a href="{{ url('pengaduan/'. $item->id ) }}">
                     👁
                 </a>
             </td>
+            @endif
         </tr>
         @endforeach
     </tbody>

@@ -22,9 +22,17 @@ use Illuminate\Support\Facades\Route;
         return view('welcome');
     }); 
 
+   
+
+
+
     require __DIR__.'/auth.php';
 // Secure Access
 Route::get('all-pengaduan', [PengaduanController::class, 'index']);
+
+Route::get('profile-diri', [ProfileController::class, 'viewProfile']); //profile
+Route::put('ubah-photo', [ProfileController::class, 'changeFotoProfile'])->name('ubah-photo');
+Route::put('ubah-data-profile', [ProfileController::class, 'changeDataProfile'])->name('ubah-data');
 
 Route::get('main', function() {
     return view('dashboard');
@@ -32,14 +40,12 @@ Route::get('main', function() {
 
 Route::middleware('auth')->group(function() {
         // Admin & Petugas
+                     // Profile Diri
+        
+
         Route::middleware('CheckRole:admin,petugas,pengaju')->group(function() {
             // Pengaduan
             Route::get('pengaduan/{id}', [PengaduanController::class, 'show']);
-
-             // Profile Diri
-             Route::get('profile-diri', [ProfileController::class, 'viewProfile']); //profile
-             Route::put('ubah-photo', [ProfileController::class, 'changeFotoProfile'])->name('ubah-photo');
-             Route::put('ubah-data-profile', [ProfileController::class, 'changeDataProfile'])->name('ubah-data');
 
         });
 
@@ -53,9 +59,9 @@ Route::middleware('auth')->group(function() {
             Route::get('petugas/edit/{id}', [DataController::class, 'EditDataMasyarakat']);
             Route::get('petugas/update/{id}', [DataController::class, 'UpdateDataMasyarakat']);
 
-            Route::get('profile-diri', [ProfileController::class, 'viewProfile']); //profile
-            Route::put('ubah-photo', [ProfileController::class, 'changeFotoProfile'])->name('ubah-photo');
-            Route::put('ubah-data-profile', [ProfileController::class, 'changeDataProfile'])->name('ubah-data');
+            // Route::get('profile-diri', [ProfileController::class, 'viewProfile']); //profile
+            // Route::put('ubah-photo', [ProfileController::class, 'changeFotoProfile'])->name('ubah-photo');
+            // Route::put('ubah-data-profile', [ProfileController::class, 'changeDataProfile'])->name('ubah-data');
         });
             
 
@@ -78,9 +84,9 @@ Route::middleware('auth')->group(function() {
             Route::get('petugas/create', [DataController::class, 'tambahDataPetugas']);
             Route::get('petugas/store', [DataController::class, 'storeDataPetugas']);
 
-            Route::get('profile-diri', [ProfileController::class, 'viewProfile']); //profile
-            Route::put('ubah-photo', [ProfileController::class, 'changeFotoProfile'])->name('ubah-photo');
-            Route::put('ubah-data-profile', [ProfileController::class, 'changeDataProfile'])->name('ubah-data');
+            // Route::get('profile-diri', [ProfileController::class, 'viewProfile']); //profile
+            // Route::put('ubah-photo', [ProfileController::class, 'changeFotoProfile'])->name('ubah-photo');
+            // Route::put('ubah-data-profile', [ProfileController::class, 'changeDataProfile'])->name('ubah-data');
 
         });
 
