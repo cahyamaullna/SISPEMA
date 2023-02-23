@@ -71,7 +71,7 @@
     
               <div class="login100-form-social flex-c-m p-t-20">
     
-                <a href="https://github.com/Ryhann" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
                   <i class="fa fa-github" aria-hidden="true"></i>
                 </a>
     
