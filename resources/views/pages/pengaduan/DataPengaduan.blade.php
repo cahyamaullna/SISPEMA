@@ -38,7 +38,7 @@
             <td class="p-3">{!! str()->limit($item->laporan, 20) !!}</td>
             <td class="p-3">{{ date('D - d M Y',$item->created_at->timestamp) }}</td>
             <td class="p-3">
-                <img src="{{ asset('storage/laporan/'. $item->photo) }}" alt="{{ $item->name }}" width="200" height="100">
+                <img src="{{ asset('storage/app/public/laporan/'. $item->photo) }}" alt="{{ $item->name }}" width="200" height="100">
             </td>
             {{-- <td class="btn btn-secondary bg-danger m-3">{{ $item->status }}</td> --}}
             @if ($item->status === 'Belum Diproses')

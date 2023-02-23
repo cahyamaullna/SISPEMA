@@ -31,7 +31,7 @@
               </div>
 
               <div class="mt-5 d-flex flex-column justify-content-between">
-                  <img src="{{ url('storage/laporan/'. $detail->photo) }}"  width="300" height="200" alt="">
+                  <img src="{{ url('storage/app/public/laporan/'. $detail->photo) }}"  width="300" height="200" alt="">
                   
                   
                   <div class="mt-5">
