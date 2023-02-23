@@ -247,15 +247,15 @@
     <section id="team" class="section-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h3 class="section-title">Team</h3>
+          <h3 class="section-title">Dibuat Oleh</h3>
           <span class="section-divider"></span>
-          <p class="section-description">Perkenalan tentang anggota team kami.</p>
+          <p class="section-description">hehehehe.</p>
         </div>
         <div class="row">
           <div class="col-lg-3 col-md-6">
             <div class="member">
               <div class="pic"><img src="{{ asset('images/myimages.jpg') }}" alt=""></div>
-              <h4>Rayhan Rizki Putra</h4>
+              <h4>Azikha Abna Fadla</h4>
               <span>CEO & </span>
               <div class="social">
                 <a href=""><i class="bi bi-twitter"></i></a>
