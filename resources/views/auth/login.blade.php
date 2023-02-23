@@ -1,103 +1,121 @@
+<!--
+=========================================================
+* Argon Dashboard 2 - v2.0.4
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/argon-dashboard
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-
-    <link rel="icon" href="images/icons/favicon.png">
-        
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" />
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}" />
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}" />
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/select2/select2.min.css') }}" />
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}" />
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <style>
-        a {
-            text-decoration: none;
-            font-weight: 500;
-            animation: 0.5s
-        }
-        a:hover {
-            font-weight: bold;            
-        }
-    </style>
-    <title>Login - SISPEMA</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('argon-dashboard/assets/img/apple-icon.png') }}">
+  <link rel="icon" type="image/png" href="{{ asset('argon-dashboard/assets/img/favicon.png') }}">
+  <title>
+    SISPEMA | Login
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="{{ asset('argon-dashboard/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
+  <link href="{{ asset('argon-dashboard/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="{{ asset('argon-dashboard/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="{{ asset('argon-dashboard/assets/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
 </head>
-<body>
-    <div class="limiter">
-        <div class="container-login100">
-          <div class="wrap-login100">
-           
-            <form action="{{ route('login') }}" method="POST" class="login100-form validate-form">
-              @csrf
 
-              @if ($errors->any())
-                  @foreach ($errors->all() as $error)
-                   <span class="btn btn-info container"> {{ $error }} </span> 
-                  @endforeach
-              @endif
-    
-              <span class="login100-form-title p-b-43">Login</span>
-    
-              <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                <input class="input100" type="text" name="email" autofocus />
-                <span class="focus-input100"></span>
-                <span class="label-input100">Email</span>
+<body class="">
+  <div class="container position-sticky z-index-sticky top-0">
+    <div class="row">
+    </div>
+  </div>
+  <main class="main-content  mt-0">
+    <section>
+      <div class="page-header min-vh-100">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
+              <div class="card card-plain">
+                <div class="card-header pb-0 text-start">
+                  <h4 class="font-weight-bolder">Sign In</h4>
+                  <p class="mb-0">Enter your email and password to sign in</p>
+                </div>
+
+                <div class="card-body">
+                <form action="{{ route('login') }}" method="POST" class="login100-form validate-form">
+                      @csrf
+
+                      @if ($errors->any())
+                          @foreach ($errors->all() as $error)
+                          <span class="btn btn-info container"> {{ $error }} </span> 
+                          @endforeach
+                      @endif
+                    <div class="mb-3" data-validate="Valid email is required: ex@abc.xyz">
+                      <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email" name="email">
+                    </div>
+                    <div class="mb-3" data-validate="Password is required">
+                      <input type="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password" name="password">
+                    </div>
+                    <!-- <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="rememberMe">
+                      <label class="form-check-label" for="rememberMe">Remember me</label>
+                    </div> -->
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Login</button>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                  <p class="mb-4 text-sm mx-auto">
+                    Don't have an account?
+                    <a href="{{ url('/register') }}" class="text-primary text-gradient font-weight-bold">Daftar</a>
+                  </p>
+                </div>
               </div>
-    
-              <div class="wrap-input100 validate-input" data-validate="Password is required">
-                <input class="input100" type="password" name="password" required/>
-                <span class="focus-input100"></span>
-                <span class="label-input100">Password</span>
+            </div>
+            <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
+              <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
+          background-size: cover;">
+                <span class="mask bg-gradient-primary opacity-6"></span>
+                <h4 class="mt-5 text-white font-weight-bolder position-relative">"Attention is the new currency"</h4>
+                <p class="text-white position-relative">The more effortless the writing looks, the more effort the writer actually put into the process.</p>
               </div>
-    
-              <div class="container-login100-form-btn">
-                <button type="submit" class="login100-form-btn">Login</button>
-              </div>
-    
-              <div class="text-center p-t-46 p-b-20">
-                <span class="txt2"> Or <a href={{ url('/register') }}>Sign Up </a> </span>
-              </div>
-    
-              <div class="login100-form-social flex-c-m p-t-20">
-    
-                <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-                  <i class="fa fa-github" aria-hidden="true"></i>
-                </a>
-    
-              </div>
-            </form>
-    
-            <div class="login100-more" style="background-image: url('images/bg-01.jpg')"></div>
+            </div>
           </div>
         </div>
       </div>
-    
-      <!--===============================================================================================-->
-      <script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
-      <!--===============================================================================================-->
-      <script src="{{ asset('vendor/animsition/js/animsition.min.js') }}"></script>
-      <!--===============================================================================================-->
-      <script src="{{ asset('vendor/bootstrap/js/popper.js') }}"></script>
-      <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-      <!--===============================================================================================-->
-      <script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
-      <!--===============================================================================================-->
-      <script src="{{ asset('vendor/daterangepicker/moment.min.js') }}"></script>
-      <script src="{{ asset('vendor/daterangepicker/daterangepicker.js') }}"></script>
-      <!--===============================================================================================-->
-      <script src="{{ asset('vendor/countdowntime/countdowntime.js') }}"></script>
-      <!--===============================================================================================-->
-      <script src="{{ asset('js/main.js') }}"></script>
+    </section>
+  </main>
+  <!--   Core JS Files   -->
+  <script src="{{ asset('argon-dashboard/assets/js/core/popper.min.js') }}"></script>
+  <script src="{{ asset('argon-dashboard/assets/js/core/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('argon-dashboard/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+  <script src="{{ asset('argon-dashboard/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="{{ asset('argon-dashboard/assets/js/argon-dashboard.min.js?v=2.0.4') }}"></script>
 </body>
+
 </html>

@@ -9,21 +9,17 @@
   <source src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/1406990/915b1b4a05133186525a956d7ca5c142a3c3c9f3.webm" type="video/webm">
   </video> --}}
 
- @include('template.header-content')
+  @include('template.header-content')
 
- @include('template.sidebar')  
+  @include('template.sidebar')
 
   <main id="main" class="main">
 
     @yield('breadcrumb')
-   
 
-      @yield('container')
+    @yield('container')
 
   </main><!-- End #main -->
-
-  @include('template.footer')
-
 
   <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -63,31 +59,30 @@
   @yield('j_script')
 
   <script>
-      function tambahPetugas() {
-        $.get("{{ url('petugas/create') }}", {}, function(data,status) {
-            $('#title').html('Tambah Petugas');
-            $('#content').html(data);
-            $('#modal').modal('show');
-        })
-      }
+    function tambahPetugas() {
+      $.get("{{ url('petugas/create') }}", {}, function(data, status) {
+        $('#title').html('Tambah Petugas');
+        $('#content').html(data);
+        $('#modal').modal('show');
+      })
+    }
 
-      function simpanDataPetugas() {
-        var name = $('.name').val()
-        var email = $('.email').val()
-        var password = $('.password').val()
-        var role = $('.role').val()
+    function simpanDataPetugas() {
+      var name = $('.name').val()
+      var email = $('.email').val()
+      var password = $('.password').val()
+      var role = $('.role').val()
 
-        $.ajax({
-          type: "get",
-          url: "{{ url('petugas/store') }}",
-          data: "name=" + name + "&email=" + email + "&password=" + password + "&role=" + role,
-          success: function (response) {
-              window.location.href = "{{ url('data-semua-user') }}"
-              toastr.success('Data Berhasil Disimpan')
-          }
-        });
-      }
-
+      $.ajax({
+        type: "get",
+        url: "{{ url('petugas/store') }}",
+        data: "name=" + name + "&email=" + email + "&password=" + password + "&role=" + role,
+        success: function(response) {
+          window.location.href = "{{ url('data-semua-user') }}"
+          toastr.success('Data Berhasil Disimpan')
+        }
+      });
+    }
   </script>
 </body>
 
